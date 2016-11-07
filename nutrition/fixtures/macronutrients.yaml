@@ -1,0 +1,14 @@
+- model: nutrition.Nutrient
+  fields:
+    name: carbohydrates
+    description: carbohydrates
+   
+- model: nutrition.Nutrient
+  fields:
+    name: protein
+    description: protein
+
+- model: nutrition.Nutrient
+  fields:
+    name: fats
+    description: fats
