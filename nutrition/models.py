@@ -30,13 +30,30 @@ class Edible(models.Model):
 
     @property
     def calories(self):
+        """ Calories per 100g.
+
+        It's either the self._calories if assinged or a sum of calories of all
+        the ingredients.
+
+        """
         return self._calories or sum(
-            [i.amount * i.ingredient.calories for i in self.ingredients.all()]
-        )/100
+            [
+                (i.ingredient.calories / i.amount)
+                for i in self.ingredients.all()
+            ]
+        )
 
 
 class Recipe(Edible):
     servings = models.IntegerField(default=1)
+
+    @property
+    def mass(self):
+        return sum([i.amount for i in self.igredients])
+
+    @property
+    def serving_mass(self):
+        return self.mass / self.servings
 
 
 class EdibleIngredients(models.Model):
