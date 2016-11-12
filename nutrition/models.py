@@ -5,7 +5,7 @@ class Nutrient(models.Model):
     """ This class describes a nutrient.
 
     This can be a macronutrient or any vitamin, basically anything on sub
-    ingredient level
+    ingredient level. Corresponding table in USDA database is nutr_def.
 
     """
     name = models.CharField(max_length=30)
@@ -17,6 +17,8 @@ class Nutrient(models.Model):
 
 class Edible(models.Model):
     """ This class describes anything that can be eaten.
+
+    Corresponding table in USDA database is food_des.
 
     """
     name = models.CharField(max_length=30)
@@ -63,6 +65,8 @@ class EdibleIngredients(models.Model):
 class NutrientContent(models.Model):
     """ Objects of this class store information about content of nutrients
     in a given Edible.
+
+    Corresponding table in USDA database is nut_data.
 
     """
     edible = models.ForeignKey('Edible', on_delete=models.CASCADE)
