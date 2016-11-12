@@ -5,6 +5,7 @@ from .models import (
     Recipe,
     EdibleIngredients,
     NutrientContent,
+    WeightMeasure,
 )
 
 
@@ -32,3 +33,4 @@ admin.site.register(Edible, EdibleAdmin)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(EdibleIngredients)
 admin.site.register(NutrientContent)
+admin.site.register(WeightMeasure)
