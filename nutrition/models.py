@@ -75,3 +75,16 @@ class NutrientContent(models.Model):
 
     def __str__(self):
         return "{} grams of {}".format(self.content, self.nutrient.name)
+
+
+class WeightMeasure(models.Model):
+    """ Objects of this class represent the amount of a given Edible contained
+    by household measures.
+
+    Corresponding table in USDA database is weight.
+
+    """
+    edible = models.ForeignKey('Edible', on_delete=models.CASCADE)
+    amount = models.FloatField()
+    description = models.CharField(max_length=200)
+    weight = models.FloatField()
