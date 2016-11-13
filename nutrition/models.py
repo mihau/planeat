@@ -10,6 +10,7 @@ class Nutrient(models.Model):
     """
     name = models.CharField(max_length=30)
     description = models.TextField()
+    unit = models.CharField(max_length=30, default='g')
 
     def __str__(self):
         return self.name
@@ -105,3 +106,8 @@ class WeightMeasure(models.Model):
     amount = models.FloatField()
     description = models.CharField(max_length=200)
     weight = models.FloatField()
+
+    def __str__(self):
+        return "{} {} of {} ({})".format(
+            self.amount, self.description, self.edible.name, self.weight
+        )
