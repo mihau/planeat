@@ -2,3 +2,4 @@ db.sqlite3
 .virtualenv
 *.pyc
 .idea
+.DS_Store
