@@ -8,7 +8,7 @@ class Nutrient(models.Model):
     ingredient level. Corresponding table in USDA database is nutr_def.
 
     """
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=480)
     description = models.TextField()
     unit = models.CharField(max_length=30, default='g')
 
@@ -22,7 +22,7 @@ class Edible(models.Model):
     Corresponding table in USDA database is food_des.
 
     """
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=480)
     description = models.TextField()
     _calories = models.IntegerField(blank=True, null=True)
 
